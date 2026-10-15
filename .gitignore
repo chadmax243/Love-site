@@ -1,0 +1,3 @@
+node_modules/
+dist/
+.envgit rm -r --cached love-site/node_module
