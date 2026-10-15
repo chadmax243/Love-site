@@ -1,0 +1,201 @@
+.bouquet-page {
+  padding: 18px 14px;
+}
+
+.bouquet-card {
+  position: relative;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.bouquet-sticker {
+  display: inline-block;
+  padding: 5px 12px;
+  background: #fff;
+  border: 1px solid var(--pink);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transform: rotate(-3deg);
+}
+
+.bouquet-title {
+  color: var(--red);
+}
+
+.bouquet-art {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+  padding: 4px;
+}
+
+.bouquet-svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  transform-origin: 50% 90%;
+}
+
+.bouquet-art.revealed .bouquet-svg {
+  animation: bouquetReveal 0.9s cubic-bezier(0.2, 1.4, 0.5, 1) both;
+}
+
+.bouquet-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bouquet-sparkles span {
+  position: absolute;
+  color: var(--rose);
+  opacity: 0;
+}
+
+.bouquet-sparkles span:nth-child(1) {
+  top: 17%;
+  left: 12%;
+}
+
+.bouquet-sparkles span:nth-child(2) {
+  top: 33%;
+  right: 8%;
+}
+
+.bouquet-sparkles span:nth-child(3) {
+  top: 12%;
+  right: 20%;
+}
+
+.bouquet-sparkles span:nth-child(4) {
+  top: 46%;
+  left: 8%;
+}
+
+.bouquet-sparkles span:nth-child(5) {
+  top: 27%;
+  left: 50%;
+}
+
+.bouquet-art.revealed .bouquet-sparkles span {
+  animation: sparklePop 0.7s ease-out both;
+}
+
+.bouquet-sparkles span:nth-child(2) {
+  animation-delay: 0.15s !important;
+}
+
+.bouquet-sparkles span:nth-child(3) {
+  animation-delay: 0.3s !important;
+}
+
+.bouquet-sparkles span:nth-child(4) {
+  animation-delay: 0.45s !important;
+}
+
+.bouquet-sparkles span:nth-child(5) {
+  animation-delay: 0.6s !important;
+}
+
+.bouquet-message {
+  width: 100%;
+  padding: 12px 8px;
+  background: #fff0f3;
+  border: 1px dashed var(--pink);
+  border-radius: 12px;
+}
+
+.bouquet-message .script {
+  font-size: clamp(1.6rem, 7vw, 2rem);
+}
+
+.bouquet-btn {
+  width: 100%;
+  max-width: 280px;
+}
+
+.bouquet-back {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 700 0.85rem var(--font-body);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+@keyframes flowerBloom {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+}
+
+@keyframes bouquetReveal {
+  0% {
+    opacity: 0.65;
+    transform: translateY(20px) scale(0.85) rotate(-4deg);
+  }
+  65% {
+    transform: translateY(-5px) scale(1.03) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes sparklePop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-25deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.3) rotate(15deg);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@media (min-width: 481px) {
+  .bouquet-card {
+    padding: 28px 24px;
+  }
+
+  .bouquet-art {
+    max-width: 350px;
+  }
+}
+
+@media (max-height: 700px) {
+  .bouquet-page {
+    align-items: flex-start;
+  }
+
+  .bouquet-art {
+    max-width: 245px;
+  }
+
+  .bouquet-card {
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bouquet-art.revealed .bouquet-svg,
+  .bouquet-art.revealed .bouquet-sparkles span {
+    animation: none;
+  }
+}

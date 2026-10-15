@@ -1,0 +1,41 @@
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+.bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+.hearts span {
+  position: absolute;
+  bottom: -30px;
+  color: var(--rose);
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bounce,
+  .hearts span {
+    animation: none;
+  }
+  .needle {
+    transition: none;
+  }
+}

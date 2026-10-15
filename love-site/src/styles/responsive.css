@@ -1,0 +1,10 @@
+/* Base styles are mobile-first; these only adjust at breakpoints */
+@media (max-width: 374px) { .page { padding: 10px; } .card { padding: 16px 12px; gap: 10px; } .btn { padding: 0 24px; } }
+/* Small phones: gift boxes stack as 2 on top, 1 centred below, so nothing gets squeezed */
+@media (max-width: 389px) {
+  .gifts { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
+  .gift { max-width: 120px; }
+  .gift:nth-child(3) { grid-column: 1 / -1; }
+}
+@media (min-width: 431px) { .card { padding: 28px 24px; } }
+@media (min-width: 769px) { .shell { box-shadow: 0 0 60px rgba(214, 32, 76, .15); } }
